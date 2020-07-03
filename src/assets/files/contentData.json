@@ -1,0 +1,108 @@
+{
+  "title": "Yudha Syarifudin",
+  "copyright": "Copyright © Yudha Syarifudin 2020",
+  "gitHubMessage": "Source code available on ",
+  "gitHubUrl": "https://github.com/YudhaSy/portfolioDemo",
+  "contents": [
+    {
+      "id": "about",
+      "isCollapsed": false,
+      "isAnimated": true,
+      "isFormContent": false,
+      "menuItem": "About",
+      "dataItems": [
+        {
+          "type": "nonList",
+          "title": "About me",
+          "message": "I have over 5 years of experience as a software developer. While I'm a proficient full-stack developer, my expertise is in building scalable and maintainable front-end using Angular framework.\nI'm most attracted to solving real client problems with a business justification."
+        },
+        {
+          "type": "list",
+          "title": "Highlights",
+          "dataMessages": [
+            {
+              "message": "Led and excelled in a successful rapid development of a new analytic web app that uses Angular framework from initial business requirements, to UI/UX design, to staging deployment for demo to prospective customers in less than 3 months"
+            },
+            {
+              "message": "Championed in the improvement of unit tests and UI (Protractor) tests in a past project that helped the company saved hundreds of hours of labours in a year"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "interests",
+      "isCollapsed": true,
+      "isAnimated": true,
+      "isFormContent": false,
+      "menuItem": "Interests",
+      "dataItems": [
+        {
+          "type": "list",
+          "title": "Interests",
+          "dataMessages": [
+            {
+              "message": "Anything front-end related, I've been looking at some courses that involved front-end framework such as Vue.js and React"
+            },
+            {
+              "message": "AI and machine learning are something that I've been interested in as well"
+            },
+            {
+              "message": "Web app security is also something that I've been interested in, get better understanding from looking at the OWASP and hack.me"
+            },
+            {
+              "message": "Automation. I am really interested in automation. Almost everything is voice controlled in my house, with few automation along the way using IFTTT"
+            },
+            {
+              "message": "Anything outdoor. When there is no snow, I like to kayak, bike, and hike. But when there is snow, I like to snowboard and taking a stroll in the snowy weather"
+            }
+          ]
+        },
+        {
+          "type": "list",
+          "title": "Recent Projects",
+          "subTitle": "Click on the GitLab logo below to see the source code",
+          "dataMessages": [
+            {
+              "title": "CurrencyXChange",
+              "website": "http://currencyXChange.net",
+              "message": "(Some features are still WIP) A web app where user can register and login to see favourite currencies as well as to be able to create preference to be notified whenever\ncurrency rates go below or above specific thresholds. The front end is made by using Angular framework in AWS S3 bucket. A GET call to exchangeratesapi.io/ is done by AWS lambda and store into AWS DocumentDB."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "contact",
+      "isCollapsed": true,
+      "isAnimated": true,
+      "isFormContent": true,
+      "menuItem": "Contact",
+      "dataItems": [
+        {
+          "type": "textLine",
+          "controlName": "name",
+          "errorMessages": {
+            "required": "Name is required"
+          }
+        },
+        {
+          "type": "textLine",
+          "controlName": "email",
+          "errorMessages": {
+            "required": "Email is required",
+            "email": "Email must be a valid email address"
+          }
+        },
+        {
+          "type": "textArea",
+          "textAreaLength": 5,
+          "controlName": "message",
+          "errorMessages": {
+            "required": "Message is required"
+          }
+        }
+      ]
+    }
+  ]
+}

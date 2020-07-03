@@ -1,0 +1,43 @@
+<div #main id="{{templateId}}" [collapse]="isCollapsed" [isAnimated]="isAnimated" [ngClass]="main.style.display === 'block' ? 'content-alignment' : ''">
+  <ng-container *ngIf="!isFormContent else formTemplate">
+    <ng-container *ngFor="let item of dataItems">
+      <h2>{{item.title}}</h2>
+      <h5 *ngIf="item.subTitle">{{item.subTitle}}</h5>
+      <hr class="line-background">
+      <p *ngIf="item.type === DataItemType.NonList" class="text-left">
+        {{item.message}}
+      </p>
+      <ul *ngIf="item.type === DataItemType.List">
+        <ng-container *ngFor="let item of item.dataMessages">
+          <li class="text-left">
+            <ng-container *ngIf="item.website">
+              {{item.title}}&nbsp;&nbsp;
+              <i class="fas fa-link link-container" (click)="goToProjectLink(item.title, 'http://currencyXChange.net')"></i>&nbsp;
+              <a class="link-container" (click)="goToProjectLink(item.title + ' gitHub', 'https://github.com/YudhaSy/CurrencyXChangeDemo')"><img src="../assets/img/github.png"></a><br>
+            </ng-container>
+            {{item.message}}
+          </li>
+        </ng-container>
+      </ul>
+      <br>
+    </ng-container>
+  </ng-container>
+  <ng-template #formTemplate>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-group" *ngFor="let formItem of dataItems">
+        <ng-container *ngIf="formItem.type === DataItemType.TextLine; else showTextArea">
+          <input type="text" formControlName="{{formItem.controlName}}" class="form-control" [ngClass]="{'is-invalid': submitted && form.controls[formItem.controlName].errors}" placeholder="{{formItem.controlName}}"/>
+        </ng-container>
+        <ng-template #showTextArea>
+          <textarea type="text" rows="{{formItem.textAreaLength}}" formControlName="{{formItem.controlName}}" class="form-control" [ngClass]="{'is-invalid': submitted && form.controls[formItem.controlName].errors}" placeholder="{{formItem.controlName}}"></textarea>
+        </ng-template>
+        <div *ngIf="submitted && form.controls[formItem.controlName].errors" class="invalid-feedback">
+          <div class="error-message-placement text-left" *ngIf="form.controls[formItem.controlName].errors.required">{{formItem.errorMessages.required}}</div>
+          <div class="error-message-placement text-left" *ngIf="form.controls[formItem.controlName].errors.email">{{formItem.errorMessages.email}}</div>
+        </div>
+      </div>
+      <button class="btn btn-secondary mr-4" type="reset" (click)="resetForm()">Reset</button>
+      <button class="btn btn-primary">Send</button>
+    </form>
+  </ng-template>
+</div>
